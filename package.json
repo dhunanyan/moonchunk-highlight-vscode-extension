@@ -2,7 +2,7 @@
   "name": "moonchunk-highlight",
   "displayName": "MoonChunk Language Support",
   "description": "Production-ready syntax highlighting, snippets, onboarding dashboard, and editor behavior for MoonChunk (.mncnk) files.",
-  "version": "1.0.0",
+  "version": "1.2.1",
   "publisher": "dhunanyan",
   "license": "MIT",
   "author": {

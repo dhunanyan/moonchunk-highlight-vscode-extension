@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.2.0] - 2026-05-07
+
+### Changed
+
+- Realigned syntax highlighting rules with the current ANTLR language grammar from `moonchunk/`:
+  - core control/runtime tokens (`chunk`, `export`, `moon`, `@include`, `output`, `env`, `global`, `page`, `content`, `function`, loops/conditions)
+  - import/include statement highlighting
+  - type and boolean token coverage
+  - metadata key highlighting (`metaDescription`, `ogTitle`, `twitterCard`, etc.)
+  - operator set aligned to lexer tokens (`=>`, `==`, `!=`, `<=`, `>=`, `++`, `?`, etc.)
+  - `content { ... };` block support with HTML tag + `{expression}` embedded highlighting
+- Updated snippets to valid current MoonChunk syntax (removed outdated `fn`/`match` style templates).
+- Updated sample extension examples to modern MoonChunk syntax for easier local verification.
+- Updated line-comment configuration to `//` to match lexer behavior.
+
 ## [1.1.0] - 2026-03-30
 
 ### Added

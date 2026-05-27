@@ -7,25 +7,20 @@ Production-ready VS Code extension for the MoonChunk language (`.mncnk`).
 - Syntax highlighting for `*.mncnk` and `Moonfile`
 - Extensive TextMate grammar coverage:
   - shebang
-  - line and block comments
-  - doc comments with TODO/FIXME/NOTE tags
-  - annotations (`@annotation`)
-  - imports (`use`, `import`, `include`)
-  - declarations (`chunk`, `stream`, `module`, `let`, `var`, `const`)
-  - function definitions and calls
-  - single, double, and triple quoted strings
-  - string interpolation (`${...}`)
-  - regex literals
-  - numeric literals (binary, octal, hex, decimal, exponent, separators)
-  - constants, booleans, built-in and user types
-  - assignment/comparison/logical/arithmetic/bitwise/nullish/arrow operators
+  - ANTLR-aligned control/runtime keywords (`chunk`, `export`, `moon`, `output`, `env`, `global`, `page`, `content`, `function`, loops/conditions)
+  - include/import syntax (`@include`, `import ... from ...`, `as`, wildcard imports)
+  - metadata keys (`metaDescription`, `ogTitle`, `twitterCard`, etc.)
+  - `content { ... };` blocks with HTML tags and embedded `{expression}` highlighting
+  - function declarations/calls and arrow-function signatures
+  - string literals and numeric literals (`1`, `2.5`, `1f`, `2D`)
+  - built-in types and booleans (`int`, `float`, `double`, `bool`, `string`, `true`, `false`, etc.)
+  - lexer-aligned operators (`=>`, `==`, `!=`, `<=`, `>=`, `++`, `+`, `-`, `*`, `/`, `%`, `?`, `:`, `.`)
 - Language configuration:
-  - line/block comments
+  - line comments (`//`)
   - bracket matching
   - auto-closing/surrounding pairs
   - indentation rules
   - folding markers (`#region` / `#endregion`)
-  - doc comment enter rules
 - Snippets for common MoonChunk patterns
 - In-editor Home Dashboard (`MoonChunk: Open Home Dashboard`)
 - Guided walkthrough onboarding (`MoonChunk: Open Getting Started Walkthrough`)

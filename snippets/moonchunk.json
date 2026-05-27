@@ -1,50 +1,92 @@
 {
-  "MoonChunk Function": {
-    "prefix": "mfn",
-    "body": [
-      "fn ${1:name}(${2:input}: ${3:type}) -> ${4:void} {",
-      "  ${5:// TODO}",
-      "}"
-    ],
-    "description": "Create a MoonChunk function"
-  },
-  "MoonChunk Chunk Declaration": {
+  "MoonChunk Chunk With Page": {
     "prefix": "mchunk",
     "body": [
-      "chunk ${1:PipelineName} {",
-      "  emit ${2:output};",
+      "chunk \"${1:Main}\" {",
+      "  output: \"${2:./dist}\";",
+      "",
+      "  page \"${3:}\" {",
+      "    content {",
+      "      <h1>${4:Hello MoonChunk}</h1>",
+      "    };",
+      "  };",
+      "};"
+    ],
+    "description": "Create a chunk with output and a basic page/content block"
+  },
+  "MoonChunk Import Namespace": {
+    "prefix": "mimportns",
+    "body": [
+      "import * as ${1:Chunks} from \"${2:./shared.mncnk}\";"
+    ],
+    "description": "Import all exported chunks under a namespace alias"
+  },
+  "MoonChunk Include": {
+    "prefix": "minclude",
+    "body": [
+      "@include ${1:Chunks}.${2:Header};"
+    ],
+    "description": "Include a chunk from imported namespace"
+  },
+  "MoonChunk Function": {
+    "prefix": "mfunc",
+    "body": [
+      "function ${1:name}(${2:param}: ${3:int}): ${4:void} {",
+      "  ${5:return 0;}",
       "}"
     ],
-    "description": "Create a chunk declaration"
+    "description": "Create a function declaration"
   },
-  "MoonChunk If/Else": {
+  "MoonChunk Arrow Function": {
+    "prefix": "marrow",
+    "body": [
+      "const ${1:name} = (${2:x}: ${3:int}): ${4:int} => ${5:x};"
+    ],
+    "description": "Create an arrow function assigned to const"
+  },
+  "MoonChunk Env Global": {
+    "prefix": "menv",
+    "body": [
+      "env {",
+      "  global ${1:key}: ${2:string} = ${3:\"value\"};",
+      "};"
+    ],
+    "description": "Create env block with a global variable"
+  },
+  "MoonChunk If Statement": {
     "prefix": "mif",
     "body": [
       "if (${1:condition}) {",
       "  ${2:// body}",
       "} else {",
       "  ${3:// fallback}",
-      "}"
+      "};"
     ],
     "description": "Create an if/else statement"
   },
-  "MoonChunk For In": {
+  "MoonChunk For Loop": {
     "prefix": "mfor",
     "body": [
-      "for ${1:item} in ${2:items} {",
+      "for (let ${1:i}: int = 0; ${1:i} < ${2:10}; ${1:i}++) {",
       "  ${3:// body}",
-      "}"
+      "};"
     ],
-    "description": "Create a for-in loop"
+    "description": "Create a for loop"
   },
-  "MoonChunk Match": {
-    "prefix": "mmatch",
+  "MoonChunk While Loop": {
+    "prefix": "mwhile",
     "body": [
-      "match ${1:value} {",
-      "  ${2:PatternA} => ${3:resultA},",
-      "  _ => ${4:defaultResult}",
-      "}"
+      "while (${1:condition}) {",
+      "  ${2:// body}",
+      "};"
     ],
-    "description": "Create a pattern matching block"
+    "description": "Create a while loop"
+  },
+  "MoonChunk Entrypoint": {
+    "prefix": "mmoon",
+    "body": [
+      "moon(${1:Main});"
+    ],
+    "description": "Run selected chunk as entrypoint"
   }
 }

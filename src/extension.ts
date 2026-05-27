@@ -52,7 +52,6 @@ async function openDocsIndex(context: vscode.ExtensionContext): Promise<void> {
     await vscode.env.openExternal(vscode.Uri.parse(LINKS.docs));
     return;
   }
-
   const uri = vscode.Uri.joinPath(context.extensionUri, "docs", "INDEX.md");
   const doc = await vscode.workspace.openTextDocument(uri);
   await vscode.window.showTextDocument(doc, { preview: false });

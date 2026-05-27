@@ -1,30 +1,30 @@
-#!/usr/bin/env moonchunk
+import * as Shared from "./shared.mncnk";
 
-/**
- * TODO: verify stream output integrity
- */
-@benchmark
-module DataFlow {
-  const MAX_RETRIES = 3;
-  let retry_count = 0;
+export chunk "Main" {
+  @include Shared.Header;
+  output: "./dist";
 
-  fn normalize(input: string) -> string {
-    let cleaned = "value=${input}";
-    let pattern = /[A-Z_][A-Z0-9_]*/gi;
+  title: "MoonChunk Demo";
+  metaDescription: "Demo page rendered by MoonChunk extension sample.";
 
-    if (input == "") {
-      return "";
-    } else {
-      return cleaned;
-    }
+  env {
+    global siteName: string = "MoonChunk";
+  };
+
+  const add = (a: int, b: int): int => a + b;
+
+  function greet(name: string): string {
+    return "Hello " + name;
   }
 
-  chunk ParseChunk {
-    emit normalize("HELLO_WORLD");
-  }
+  page "" {
+    let count: int = add(2, 3);
+    content {
+      <h1>{title}</h1>
+      <p>{greet(siteName)}</p>
+      <p>Count: {count}</p>
+    };
+  };
+};
 
-  for item in [1, 2, 3, 4] {
-    spawn item;
-    merge item;
-  }
-}
+moon(Main);

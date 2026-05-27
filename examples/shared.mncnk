@@ -1,0 +1,7 @@
+export chunk "Header" {
+  page "" {
+    content {
+      <p>Shared header chunk</p>
+    };
+  };
+};
